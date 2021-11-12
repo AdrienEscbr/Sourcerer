@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mémo : Alt + Shift + f => auto align 
+npm init
+npm install apollo-server graphql 
+npm install nodemon -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
+    <title>Sourcerer</title>
+</head>
+
+<header>
+    <div class="banner">
+        <div class="logo">
+            <img src="../Projet Sourcerer/Images/sourcerer_logo.png" alt="logo">
+        </div>
+        <div class="search_bar_container">
+            <input type="text" placeholder="Search">
+            <div class="search_icon">
+                <img src="https://sourcerer.io/icons/search.svg" alt="search">
+            </div>
+
+        </div>
+        <div class="links">
+            <a href="https://sourcerer.io/jobs-info" style="text-decoration: none;">JOBS</a>
+            <span>
+                <p>NEW</p>
+            </span>
+            <p> / </p>
+            <a href="">ADRIENESCBR</a>
+        </div>
+    </div>
+</header>
+
+
+<!-- Code de la page principale -->
+
+<body>
+
+    <div class="container">
+        <div class="internal_container">
+            <div class="internal_container1">
+                <p>Share your profile on: <br>
+                    <a href="">LinkedIn</a><span></span>
+                    <a href="">Twitter</a><span></span>
+                    <a href="">Facebook</a><span></span>
+                    <a href="">Get HTML</a>
+                </p>
+                <img src="https://sourcerer.io/icons/pencil.svg" alt="edit">
+            </div>
+            <div class="internal_container2">
+                <p>1</p>
+                <h1>Adrien <br> ESCOUBEYROU</h1>
+                <h2>adrienescbr</h2>
+            </div>
+            <div class="internal_container3">
+                <div class="profile_img">
+                    <img src="../Projet Sourcerer/Images/garfield réveil.jpg" alt="profile image">
+                </div>
+                <div class="container_block">
+                    <div class="block">
+                        <p>Commits <br>0</p>
+                    </div>
+                    <div class="block">
+                        <p>Rest <br>0</p>
+                    </div>
+                    <div class="block">
+                        <p>Lines of code <br>0</p>
+                    </div>
+                    <div class="block" style="background: #c0f1e2;">
+                        <p>Followers <br>0</p>
+                    </div>
+                    <div class="block" style="background: #c0f1e2;">
+                        <p>Following <br>0</p>
+                    </div>
+                    <div class="block" style="background: #00e7aa;">
+                        <p>Refresh</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="stat_container">
+            <div class="stat_title">
+                <h1>Overview</h1>
+            </div>
+            <div class="graph">
+                <canvas id="graph_languages"></canvas>
+            </div>
+        </div>
+        <div class="stat_container">
+            <div class="stat_title">
+                <h1>Languages</h1>
+            </div>
+            <div class="graph">
+                <div class="graph_circle"><canvas id=graph_circle></canvas></div>
+            </div>
+        </div>
+        <div class="stat_container">
+            <div class="stat_title">
+                <h1>Technologies</h1>
+            </div>
+            <div class="graph">
+                <p>Ce texte sera remplacé par des graphiques</p>
+            </div>
+        </div>
+        <div class="stat_container">
+            <div class="stat_title">
+                <h1>Fun Facts</h1>
+            </div>
+            <div class="graph">
+                <p>Ce texte sera remplacé par des graphiques</p>
+            </div>
+        </div>
+        <div class="stat_container">
+            <div class="stat_title">
+                <h1>Coworkers Superstars</h1>
+            </div>
+            <div class="graph">
+                <p>Ce texte sera remplacé par des graphiques</p>
+            </div>
+        </div>
+        <div class="stat_container">
+            <div class="stat_title">
+                <h1>About</h1>
+            </div>
+            <div class="graph">
+                <p>Ce texte sera remplacé par des graphiques</p>
+            </div>
+        </div>
+        <div class="stat_container">
+            <div class="stat_title">
+                <h1>Work Experience</h1>
+            </div>
+            <div class="graph">
+                <p>Ce texte sera remplacé par des graphiques</p>
+            </div>
+        </div>
+        <div id="app">
+            <h1>Blog</h1>
+            <div>
+              <article v-for="post of posts">
+                <div class="title">{{ post.title }}</div>
+                <div class="author">By {{ post.author.name }}</div>
+              </article>
+            </div>
+          </div>
+    </div>
+
+
+</body>
+<!-- Code du bas de page -->
+<footer>
+
+</footer>
+
+</html>
+
+
+<script>
+
+    const ctx = document.getElementById("graph_languages").getContext("2d");
+    const graphC = document.getElementById("graph_circle").getContext("2d");
+
+    var graph_circle = new Chart(graphC, {
+        type: 'pie',
+        data: {
+            labels: [
+                'C/C++',
+                'HTML',
+                'CSS'
+            ],
+            datasets: [{
+                label: 'My First Dataset',
+                data: [300, 50, 100],
+                backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+                'rgb(255, 205, 86)'
+                ],
+                hoverOffset: 4,
+                radius: '80%'                
+            }]
+        }
+    })
+
+    var graph_languages = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['C/C++', 'HTML', 'CSS', 'Javascript', 'Arduino'],
+        datasets: [{
+            label: 'Languages',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+</script>
